@@ -79,35 +79,18 @@ export const employees = [
     location: 'Bhopal, MP',
     contact: '9755106375',
     dateOfJoining: '1 September 2025',
+    dateOfBirth: '07 Oct 2004',
     timeZone: 'Full-time',
     photo: '/asset/harshit-vanya.png',
     keySkills: [
-      'MySQL',
-      'PostgreSQL',
-      'DB2',
-      'MongoDB',
-      'SQLite3',
-      'Apache Cassandra',
-      'AWS DynamoDB',
-      'AWS RDS',
-      'Azure Database',
-      'AWS',
-      'Azure',
-      'Microsoft Fabric',
-      'Azure Synapse',
-      'Power BI',
-      'Snowflake',
-      'Matillion',
-      'Apache Airflow',
+      'Data Engineering',
+      'Data Science',
+      'Team Leadership',
+      'Scalable Data Pipelines',
+      'AI/ML Integration',
+      'Cloud Data Platforms',
       'Apache Spark',
-      'Apache Kafka',
-      'Kinesis Firehose',
-      'Azure DevOps',
-      'GitHub',
-      'Bitbucket',
-      'GitLab',
-      'Terraform',
-      'GitHub Actions'
+      'Snowflake'
     ],
     professionalIntro: "I am a Data Scientist working as an Associate Data Engineer and serving as a Team Lead, responsible for driving both technical execution and team coordination. My work focuses on building scalable data pipelines, transforming complex datasets, and integrating AI/ML solutions into production-ready systems.\n\nI operate across the full data lifecycle — from data ingestion and processing to machine learning model development and deployment — ensuring solutions are efficient, reliable, and aligned with real-world business needs. I am particularly focused on applying AI/ML to solve practical problems, optimizing data workflows, and enabling data-driven decision-making.\n\nAs a Team Lead, I take ownership of project delivery, guide team members, review implementations, and ensure high standards of code quality, performance, and collaboration.\n\nOutside of work, I enjoy gaming and bike riding, which help maintain focus, discipline, and a competitive mindset.",
     technicalSkills: [
@@ -172,6 +155,7 @@ export const employees = [
     location: 'Bhopal, MP',
     contact: '7000597133',
     dateOfJoining: '17 February 2025',
+    dateOfBirth: '27 Mar 2003',
     timeZone: 'Morning',
     photo: '/asset/prateeksha.jpeg',
     keySkills: [
@@ -219,81 +203,6 @@ export const employees = [
     ]
   },
   {
-    id: 'Bhumika-Kori',
-    name: 'Bhumika Kori',
-    jobTitle: 'Associate Data Engineer-1',
-    department: 'Engineering',
-    location: 'Bhopal, MP',
-    contact: '9584020801',
-    dateOfJoining: '12 May 2025',
-    timeZone: 'Morning',
-    photo: '/asset/bhumika.png',
-    keySkills: [
-      'Python',
-      'SQL',
-      'Django',
-      'Flask',
-      'FastAPI',
-      'Microsoft Azure',
-      'Azure Data Factory (ADF)',
-      'Azure SQL',
-      'ETL/ELT',
-      'Apache Airflow',
-      'Snowflake',
-      'Databricks',
-      'PySpark',
-      'Apache Superset',
-      'PostgreSQL',
-      'MySQL',
-      'MongoDB',
-      'DBeaver',
-      'Pandas',
-      'NumPy',
-      'scikit-learn',
-      'Statistics',
-      'Git',
-      'GitHub',
-      'GitLab',
-      'Bitbucket',
-      'Jira'
-    ],
-    professionalIntro: "I enjoy listening to music while working, as it helps me stay focused, and I also like drawing, which enhances my creativity and problem-solving approach.\n\nI believe in hands-on learning, continuous growth, and collaborating with teams to build efficient and impactful solutions.",
-    technicalSkills: [
-        {
-          category: 'Programming & Scripting',
-          skills: 'Python, SQL'
-        },
-        {
-          category: 'Backend & APIs',
-          skills: 'Django, Flask, FastAPI'
-        },
-        {
-          category: 'Cloud & Data Platforms',
-          skills: 'Azure, Azure Data Factory, Azure SQL'
-        },
-        {
-          category: 'Data Engineering',
-          skills: 'ETL/ELT, Apache Airflow, Databricks, PySpark, Snowflake'
-        },
-        {
-          category: 'Databases',
-          skills: 'PostgreSQL, MySQL, MongoDB'
-        },
-        {
-          category: 'Data Analysis & ML',
-          skills: 'Pandas, NumPy, scikit-learn'
-        },
-        {
-          category: 'Visualization & BI',
-          skills: 'Apache Superset'
-        },
-        {
-          category: 'Version Control',
-          skills: 'Git'
-        }
-      ]
-  },
-  {
     id: 'Sherry-Khosla',
     name: 'Sherry Khosla',
     jobTitle: 'Associate Data Engineer-1',
@@ -301,6 +210,7 @@ export const employees = [
     location: 'Bhopal, MP',
     contact: '63071 76266',
     dateOfJoining: '21 July 2025',
+    dateOfBirth: '23 Aug 2004',
     timeZone: 'Morning',
     photo: '/asset/sherry.png',
     keySkills: [
@@ -355,6 +265,7 @@ export const employees = [
     location: 'Bhopal, MP',
     contact: '89627 38918',
     dateOfJoining: '1 September 2025',
+    dateOfBirth: '10 Jan 2005',
     timeZone: 'Morning',
     photo: '/asset/shivnandan.jpeg',
     keySkills: [
@@ -423,6 +334,7 @@ export const employees = [
     location: 'Bhopal, MP',
     contact: '62692 13155',
     dateOfJoining: '20 November 2025',
+    dateOfBirth: '31 May 2004',
     timeZone: 'Morning',
     photo: '/asset/atharva.png',
     keySkills: [
@@ -489,6 +401,7 @@ export const employees = [
     location: 'Bhopal, MP',
     contact: '78952 36630',
     dateOfJoining: '22 November 2025',
+    dateOfBirth: '19 Nov 2004',
     timeZone: 'Night',
     photo: '/asset/ankit.png',
     keySkills: [
@@ -554,6 +467,7 @@ export const employees = [
     location: 'Bhopal, MP',
     contact: '6260479247',
     dateOfJoining: '22 December 2025',
+    dateOfBirth: '22 Sep 2003',
     timeZone: 'Morning',
     photo: '/asset/sanjana.png',
     keySkills: [
@@ -611,6 +525,7 @@ export const employees = [
     location: 'Bhopal, MP',
     contact: '98265 21601',
     dateOfJoining: '20 November 2025',
+    dateOfBirth: '17 Aug 2003',
     timeZone: 'Night',
     photo: '/asset/deepak.png',
     keySkills: [
@@ -727,6 +642,7 @@ export const employees = [
     location: 'Bhopal, MP',
     contact: '62325 70866',
     dateOfJoining: '9 February 2026',
+    dateOfBirth: '11 Dec 2002',
     timeZone: 'Morning',
     photo: '/asset/suryansh.jpg',
     keySkills: [
@@ -766,49 +682,6 @@ export const employees = [
       ]
   },
   {
-    id: 'Abhay-Kumar-Gupta',
-    name: 'Abhay Kumar Gupta',
-    jobTitle: 'Associate Data Engineer-Trainee',
-    department: 'Engineering',
-    location: 'Bhopal, MP',
-    contact: '6299663680',
-    dateOfJoining: '23 February 2026',
-    timeZone: 'Morning',
-    photo: '/asset/abhay.png',
-    keySkills: [
-      'Python',
-      'SQL',
-      'Apache Spark',
-      'Azure',
-      'AWS',
-      'Snowflake',
-      'Databricks'
-    ],
-    professionalIntro: "I have experience working on ETL pipelines, data transformation, and data integration, along with creating interactive dashboards using Power BI and Tableau. I am passionate about designing efficient data architectures and leveraging cloud technologies to solve real-world data challenges. Outside of work, I enjoy exploring new technologies, working on data-driven projects, and continuously enhancing my problem-solving and analytical skills.",
-    technicalSkills: [
-        {
-          category: 'Programming & Scripting',
-          skills: 'Python, SQL'
-        },
-        {
-          category: 'Data Engineering',
-          skills: 'Apache Spark, Databricks, ETL Pipelines, Data Transformation'
-        },
-        {
-          category: 'Databases & Warehousing',
-          skills: 'Snowflake'
-        },
-        {
-          category: 'Cloud Platforms',
-          skills: 'AWS, Azure'
-        },
-        {
-          category: 'Visualization & BI',
-          skills: 'Power BI, Tableau'
-        }
-      ]
-  },
-  {
     id: 'Priyanshi-Shrivastava',
     name: 'Priyanshi Shrivastava',
     jobTitle: 'Associate Data Engineer-Trainee',
@@ -816,6 +689,7 @@ export const employees = [
     location: 'Bhopal, MP',
     contact: '6260032015',
     dateOfJoining: '23 February 2025',
+    dateOfBirth: '18 Feb 2004',
     timeZone: 'Morning',
     photo: '/asset/priyanshi.png',
     keySkills: [
@@ -870,6 +744,7 @@ export const employees = [
     location: 'Bhopal, MP',
     contact: '7804881950',
     dateOfJoining: '23 February 2026',
+    dateOfBirth: '24 Sept 2004',
     timeZone: 'Morning',
     photo: '/asset/khushboo.png',
     keySkills: [
