@@ -1,7 +1,7 @@
 {
-  "name": "cn-beyonders-employee-directory",
+  "name": "cn-sentinels-employee-directory",
   "version": "1.0.0",
-  "description": "CN Beyonders Employee Directory - Team Profile Management System",
+  "description": "CN Sentinels Employee Directory - Team Profile Management System",
   "main": "index.js",
   "scripts": {
     "dev": "vite",
@@ -15,9 +15,9 @@
     "directory",
     "react",
     "vite",
-    "cn-beyonders"
+    "cn-sentinels"
   ],
-  "author": "CN Beyonders Team",
+  "author": "CN Sentinels Team",
   "license": "MIT",
   "dependencies": {
     "lucide-react": "^0.263.1",
@@ -33,6 +33,6 @@
     "autoprefixer": "^10.4.27",
     "postcss": "^8.5.8",
     "tailwindcss": "^4.2.2",
-    "vite": "^8.0.3"
+    "vite": "^8.0.7"
   }
 }
