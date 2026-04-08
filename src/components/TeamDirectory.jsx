@@ -188,86 +188,94 @@ const TeamDirectory = () => {
 
   return (
     <div className="main-page">
-      <header className="site-header" id="team">
-        <div className="site-header-inner">
-          <div className="brand-block">
-            <div className="brand-logo">
-              <img src={cloudNexusLogo} alt="CloudNexus logo" />
-            </div>
-            <div className="brand-meta">
-              <div className="brand-kicker">CLOUDNEXUS</div>
-              <div className="brand-title">Know Your Team - CN Sentinels</div>
-              <div className="brand-subtitle">People, roles, and how to connect</div>
-            </div>
+      <div className="top-bar">
+        <div className="logo">
+          <div className="logo-icon">
+            <img src={cloudNexusLogo} alt="CloudNexus logo" />
           </div>
+          <span>CloudNexus</span>
+        </div>
 
-          <div className="header-actions">
-            <a
-              className="company-pill"
-              href="https://www.cloudnexus.in/"
-              target="_blank"
-              rel="noreferrer"
-              title="Visit cloudnexus.in"
-            >
-              Visit <span>cloudnexus.in</span>
-            </a>
+        <div className="nav-links">
+          <a href="#team" className="active">Team</a>
+          <a href="#directory">Directory</a>
+          <a href="#about">About</a>
+          <a href="#vision">Vision</a>
+        </div>
+      </div>
 
-            <div className="employee-search">
-              <div className="search-input-wrap">
-                <span className="search-icon" aria-hidden="true">⌕</span>
-                <input
-                  className="search-input"
-                  value={query}
-                  placeholder="Search by name, role, department, or skills..."
-                  onChange={(event) => {
-                    setQuery(event.target.value)
-                    setIsSearchOpen(true)
-                  }}
-                  onFocus={() => setIsSearchOpen(true)}
-                  onBlur={() => {
-                    window.setTimeout(() => setIsSearchOpen(false), 120)
-                  }}
-                  onKeyDown={(event) => {
-                    if (event.key === 'Escape') {
-                      setIsSearchOpen(false)
-                      event.currentTarget.blur()
-                    }
+      <section className="hero" id="team">
+        <div className="hero-copy">
+          <div className="brand-kicker">CLOUDNEXUS</div>
+          <h1>Know Your Team - CN Sentinels</h1>
+          <p>People, roles and how to connect.</p>
+        </div>
 
-                    if (event.key === 'Enter' && matches[0]) {
-                      goToEmployee(matches[0])
-                    }
-                  }}
-                />
-              </div>
+        <div className="hero-actions">
+          <a
+            className="company-pill"
+            href="https://www.cloudnexus.in/"
+            target="_blank"
+            rel="noreferrer"
+            title="Visit cloudnexus.in"
+          >
+            Visit <span>cloudnexus.in</span>
+          </a>
 
-              {isSearchOpen && query.trim() && (
-                <div className="search-dropdown" role="listbox" aria-label="Employee results">
-                  {matches.length ? matches.map((employee) => (
-                    <button
-                      key={employee.id}
-                      type="button"
-                      className="search-item"
-                      onMouseDown={(event) => event.preventDefault()}
-                      onClick={() => goToEmployee(employee)}
-                    >
-                      <span className="search-item-avatar">
-                        <img src={getPhoto(employee)} alt="" />
-                      </span>
-                      <span className="search-item-text">
-                        <span className="search-item-name">{employee.name}</span>
-                        <span className="search-item-role">{shortRole(employee.jobTitle || '')}</span>
-                      </span>
-                    </button>
-                  )) : (
-                    <div className="search-empty">No employees found.</div>
-                  )}
-                </div>
-              )}
+          <div className="employee-search">
+            <div className="search-input-wrap">
+              <span className="search-icon" aria-hidden="true">⌕</span>
+              <input
+                className="search-input"
+                value={query}
+                placeholder="Search by name, role, department, or skills..."
+                onChange={(event) => {
+                  setQuery(event.target.value)
+                  setIsSearchOpen(true)
+                }}
+                onFocus={() => setIsSearchOpen(true)}
+                onBlur={() => {
+                  window.setTimeout(() => setIsSearchOpen(false), 120)
+                }}
+                onKeyDown={(event) => {
+                  if (event.key === 'Escape') {
+                    setIsSearchOpen(false)
+                    event.currentTarget.blur()
+                  }
+
+                  if (event.key === 'Enter' && matches[0]) {
+                    goToEmployee(matches[0])
+                  }
+                }}
+              />
             </div>
+
+            {isSearchOpen && query.trim() && (
+              <div className="search-dropdown" role="listbox" aria-label="Employee results">
+                {matches.length ? matches.map((employee) => (
+                  <button
+                    key={employee.id}
+                    type="button"
+                    className="search-item"
+                    onMouseDown={(event) => event.preventDefault()}
+                    onClick={() => goToEmployee(employee)}
+                  >
+                    <span className="search-item-avatar">
+                      <img src={getPhoto(employee)} alt="" />
+                    </span>
+                    <span className="search-item-text">
+                      <span className="search-item-name">{employee.name}</span>
+                      <span className="search-item-role">{shortRole(employee.jobTitle || '')}</span>
+                    </span>
+                  </button>
+                )) : (
+                  <div className="search-empty">No employees found.</div>
+                )}
+              </div>
+            )}
           </div>
         </div>
-        <div className="header-divider" />
-      </header>
+      </section>
 
       <div className="org-tree-container">
         <ul className="org-tree">
@@ -299,6 +307,7 @@ const TeamDirectory = () => {
 
                           <ul>
                             <li>
+                              <div className="prachi-h-line" />
                               <div className="trunk-nodes">
                                 {tl && (
                                   <Link to={`/profile/${tl.id}`} className="node tl-node">
@@ -310,8 +319,6 @@ const TeamDirectory = () => {
 
                                 {revOps && (
                                   <div className="prachi-branch">
-                                    <div className="prachi-h-line" />
-                                    <div className="prachi-v-line" />
                                     <Link to={`/profile/${revOps.id}`} className="node revops-node">
                                       <div className="node-photo"><img src={getPhoto(revOps)} alt={revOps.name} /></div>
                                       <div className="node-name">{revOps.name}</div>
@@ -383,7 +390,7 @@ const TeamDirectory = () => {
         </ul>
       </div>
 
-      <div className="org-cards-section">
+      <div className="org-cards-section" id="directory">
         <div className="org-cards-header">
           <h3>Team directory</h3>
           <p>Showing all CloudNexus team members grouped by hierarchy.</p>
@@ -518,17 +525,9 @@ const TeamDirectory = () => {
 
       <div className="section" id="vision">
         <h2 className="section-title">Our <span>vision & mission</span></h2>
-        <div className="section-underline" />
         <div className="vm-grid">
           <div className="vm-card">
-            <div className="vm-card-head vm-card-head-vision">
-              <div className="vm-icon vm-icon-vision" aria-hidden="true">
-                <span className="vm-icon-emoji">🌍</span>
-              </div>
-              <div className="vm-head-text">
-                <div className="vm-kicker">VISION</div>
-              </div>
-            </div>
+            <h4><span className="vm-dot" style={{ background: '#0cf' }} /> VISION</h4>
             <p>
               To be the global leader in IT solutions and digital product innovation, empowering businesses with
               cutting-edge technology that enhances efficiency, scalability, and growth. At CloudNexus, we envision
@@ -536,14 +535,7 @@ const TeamDirectory = () => {
             </p>
           </div>
           <div className="vm-card">
-            <div className="vm-card-head vm-card-head-mission">
-              <div className="vm-icon vm-icon-mission" aria-hidden="true">
-                <span className="vm-icon-emoji">🚀</span>
-              </div>
-              <div className="vm-head-text">
-                <div className="vm-kicker">MISSION</div>
-              </div>
-            </div>
+            <h4><span className="vm-dot" style={{ background: '#f44' }} /> MISSION</h4>
             <ul>
               <li>Developing innovative, meaningful products and solutions that enable businesses to operate efficiently, delivering real value in today's evolving digital world.</li>
               <li>Fostering continuous collaboration by building reliable, scalable systems, creating intelligent and adaptable solutions tailored to each client's needs.</li>
@@ -554,55 +546,13 @@ const TeamDirectory = () => {
         </div>
       </div>
 
-      <footer className="site-footer" aria-label="Footer">
-        <div className="footer-inner">
-          <div className="footer-brand">
-            <div className="footer-brand-logo" aria-hidden="true">
-              <img src={cloudNexusLogo} alt="" />
-            </div>
-            <div className="footer-brand-text">
-              <div className="footer-brand-name">CLOUDNEXUS</div>
-              <div className="footer-brand-sub">Know Your Team - CN Sentinels</div>
-            </div>
-          </div>
-
-          <div className="footer-mid">
-            <a className="footer-pill" href="#team" title="Back to top">
-              Know Your Team
-            </a>
-            <div className="footer-links" aria-label="Quick links">
-              <a href="#about">About</a>
-              <a href="#vision">Vision</a>
-              <a href="https://www.cloudnexus.in/" target="_blank" rel="noreferrer">cloudnexus.in</a>
-            </div>
-          </div>
-
-          <div className="footer-socials" aria-label="Social links">
-            <a
-              className="footer-social"
-              href="https://www.linkedin.com/company/cloudnexusorg/?viewAsMember=true"
-              target="_blank"
-              rel="noreferrer"
-              title="LinkedIn"
-              aria-label="LinkedIn"
-            >
-              <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-                <path fill="currentColor" d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1 4.98 2.12 4.98 3.5ZM.2 23.8h4.6V7.9H.2v15.9ZM8.1 7.9h4.4v2.2h.1c.6-1.2 2.1-2.5 4.4-2.5 4.7 0 5.6 3.1 5.6 7.1v9.1h-4.6v-8.1c0-1.9 0-4.4-2.7-4.4-2.7 0-3.1 2.1-3.1 4.2v8.3H8.1V7.9Z" />
-              </svg>
-            </a>
-            <a
-              className="footer-social"
-              href="https://www.instagram.com/cloudnexus.in/"
-              target="_blank"
-              rel="noreferrer"
-              title="Instagram"
-              aria-label="Instagram"
-            >
-              <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-                <path fill="currentColor" d="M7.8 2h8.4C19.4 2 22 4.6 22 7.8v8.4c0 3.2-2.6 5.8-5.8 5.8H7.8C4.6 22 2 19.4 2 16.2V7.8C2 4.6 4.6 2 7.8 2Zm0 2A3.8 3.8 0 0 0 4 7.8v8.4A3.8 3.8 0 0 0 7.8 20h8.4A3.8 3.8 0 0 0 20 16.2V7.8A3.8 3.8 0 0 0 16.2 4H7.8Zm10.65 1.5a.85.85 0 1 1 0 1.7.85.85 0 0 1 0-1.7ZM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10Zm0 2a3 3 0 1 0 0 6 3 3 0 0 0 0-6Z" />
-              </svg>
-            </a>
-          </div>
+      <footer className="site-footer">
+        <div className="footer-logo">CLOUDNEXUS</div>
+        <a className="footer-link" href="#team">Know Your Team</a>
+        <div className="footer-socials">
+          <a href="https://www.linkedin.com/company/cloudnexusorg/?viewAsMember=true" target="_blank" rel="noreferrer" title="LinkedIn">in</a>
+          <a href="https://www.instagram.com/cloudnexus.in/" target="_blank" rel="noreferrer" title="Instagram">ig</a>
+          <a href="https://www.cloudnexus.in/" target="_blank" rel="noreferrer" title="Website">web</a>
         </div>
       </footer>
     </div>
