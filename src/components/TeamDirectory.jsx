@@ -2,12 +2,22 @@ import React, { useEffect, useMemo, useState } from 'react'
 import { Link, useNavigate, useParams } from 'react-router-dom'
 import { employees } from '../data/employees'
 
-const cloudNexusLogo = `${import.meta.env.BASE_URL}asset/cloudnexus-logo.png`
+function resolvePublicAsset(path) {
+  if (!path) return path
+
+  const base = import.meta.env.BASE_URL || '/'
+  const normalizedBase = base.endsWith('/') ? base : `${base}/`
+  const normalizedPath = path.startsWith('/') ? path.slice(1) : path
+
+  return `${normalizedBase}${normalizedPath}`
+}
+
+const cloudNexusLogo = resolvePublicAsset('/asset/cloudnexus-logo.png')
 
 function getPhoto(emp) {
   if (emp.photo) {
     return emp.photo.startsWith('/asset/')
-      ? `${import.meta.env.BASE_URL}${emp.photo.slice(1)}`
+      ? resolvePublicAsset(emp.photo)
       : emp.photo
   }
 
