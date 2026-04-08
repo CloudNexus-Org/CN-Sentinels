@@ -4,8 +4,8 @@
   export default defineConfig({                                                                                                                                   
     base: process.env.BASE_PATH || '/',                                                                                                                           
     plugins: [react()],                                                                                                                                           
-  })                                                                                                                                                              
-                                                                                                                                                                  
-  src/main.jsx                                                                                                                                                    
-    <App />
-  </BrowserRouter>
+    server: {                                                                                                                                                     
+      port: 3000,                                                                                                                                                 
+      host: true                                                                                                                                                  
+    }                                                                                                                                                             
+  })   
