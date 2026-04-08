@@ -2,10 +2,20 @@ import React from 'react'
 import { useParams, Link } from 'react-router-dom'
 import { employees } from '../data/employees'
 
+function resolvePublicAsset(path) {
+  if (!path) return path
+
+  const base = import.meta.env.BASE_URL || '/'
+  const normalizedBase = base.endsWith('/') ? base : `${base}/`
+  const normalizedPath = path.startsWith('/') ? path.slice(1) : path
+
+  return `${normalizedBase}${normalizedPath}`
+}
+
 function getPhoto(emp) {
   if (emp.photo) {
     return emp.photo.startsWith('/asset/')
-      ? `${import.meta.env.BASE_URL}${emp.photo.slice(1)}`
+      ? resolvePublicAsset(emp.photo)
       : emp.photo
   }
 
