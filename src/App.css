@@ -84,6 +84,7 @@
   align-items: center;
   justify-content: space-between;
   gap: 64px;
+  flex-wrap: wrap;
 }
 
 .brand-block {
@@ -91,6 +92,7 @@
   align-items: flex-start;
   gap: 18px;
   min-width: 320px;
+  flex: 1 1 420px;
 }
 
 .brand-logo {
@@ -139,14 +141,16 @@
   color: rgba(245, 245, 250, 0.96);
   letter-spacing: -0.015em;
   line-height: 1.2;
-  white-space: nowrap;
-  max-width: fit-content;
+  white-space: normal;
+  max-width: 14ch;
+  text-wrap: balance;
 }
 
 .brand-subtitle {
   margin-top: 6px;
   font-size: 13px;
   color: rgba(200, 200, 210, 0.55);
+  max-width: 36ch;
 }
 
 .header-actions {
@@ -154,7 +158,7 @@
   flex-direction: column;
   align-items: flex-end;
   gap: 14px;
-  flex: 0 0 auto;
+  flex: 1 1 320px;
 }
 
 .company-pill {
@@ -186,6 +190,7 @@
 .employee-search {
   position: relative;
   width: min(480px, 38vw);
+  min-width: 260px;
 }
 
 .search-input-wrap {
@@ -314,6 +319,7 @@
   overflow-x: auto;
   max-width: 1280px;
   margin: 0 auto;
+  scrollbar-width: thin;
 }
 
 .org-tree {
@@ -351,6 +357,7 @@
   align-items: center;
   justify-content: space-between;
   gap: 12px;
+  flex-wrap: wrap;
   margin-bottom: 12px;
   padding-bottom: 10px;
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
@@ -675,6 +682,7 @@
 .teams-row {
   display: flex;
   padding-top: var(--sp-8);
+  gap: var(--sp-4);
 }
 
 .team-group {
@@ -684,6 +692,7 @@
   padding: var(--sp-6) var(--sp-4);
   position: relative;
   height: 100%;
+  min-width: 0;
 }
 
 .team-group-label {
@@ -1087,6 +1096,7 @@
   align-items: center;
   gap: 14px;
   min-width: 220px;
+  flex: 1 1 220px;
 }
 
 .footer-brand-logo {
@@ -1123,7 +1133,7 @@
   margin-top: 4px;
   font-size: 12px;
   color: rgba(200, 200, 210, 0.55);
-  white-space: nowrap;
+  white-space: normal;
 }
 
 .footer-mid {
@@ -1132,6 +1142,7 @@
   justify-content: center;
   gap: 14px;
   flex: 1 1 auto;
+  min-width: 0;
 }
 
 .footer-pill {
@@ -1160,7 +1171,9 @@
   display: flex;
   align-items: center;
   gap: 14px;
-  white-space: nowrap;
+  white-space: normal;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 .footer-links a {
@@ -1179,6 +1192,7 @@
   gap: 12px;
   min-width: 140px;
   justify-content: flex-end;
+  flex: 0 0 auto;
 }
 
 .footer-social {
@@ -1213,6 +1227,7 @@
   padding: var(--sp-8) var(--sp-6) var(--sp-20);
   max-width: 900px;
   margin: 0 auto;
+  width: 100%;
 }
 
 .profile-topbar {
@@ -1273,12 +1288,14 @@
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
+  gap: 20px;
 }
 
 .member-info-row {
   display: flex;
   align-items: center;
   gap: 16px;
+  min-width: 0;
 }
 
 .member-avatar {
@@ -1306,6 +1323,8 @@
   font-weight: 600;
   color: #f0f0f0;
   margin-bottom: 2px;
+  line-height: 1.15;
+  word-break: break-word;
 }
 
 .member-text .member-title {
@@ -1324,6 +1343,7 @@
   display: flex;
   align-items: center;
   gap: 12px;
+  flex: 0 0 auto;
 }
 
 .member-chain-icon {
@@ -1354,6 +1374,8 @@
 .member-meta-item {
   font-size: 13px;
   color: #888;
+  min-width: 0;
+  word-break: break-word;
 }
 
 .member-meta-item strong {
@@ -1418,6 +1440,7 @@
   font-size: 13px;
   color: #999;
   line-height: 1.7;
+  overflow-wrap: anywhere;
 }
 
 .social-links-row {
@@ -1452,8 +1475,36 @@
 /*  RESPONSIVE              */
 /* ======================== */
 @media (max-width: 900px) {
+  .site-header {
+    position: static;
+  }
+
+  .site-header-inner {
+    gap: 20px;
+    padding: 0 var(--sp-6);
+  }
+
+  .header-actions {
+    width: 100%;
+    align-items: stretch;
+  }
+
+  .employee-search {
+    width: 100%;
+  }
+
+  .org-tree-container {
+    justify-content: flex-start;
+    padding-inline: var(--sp-4);
+  }
+
   .features-grid {
     grid-template-columns: 1fr 1fr;
+  }
+
+  .footer-inner {
+    flex-wrap: wrap;
+    justify-content: center;
   }
 }
 
@@ -1470,6 +1521,7 @@
 
   .brand-block {
     min-width: 0;
+    width: 100%;
   }
 
   .brand-logo {
@@ -1478,7 +1530,8 @@
   }
 
   .brand-title {
-    font-size: 32px;
+    font-size: clamp(28px, 7.2vw, 32px);
+    max-width: none;
   }
 
   .header-actions {
@@ -1487,6 +1540,7 @@
 
   .employee-search {
     width: 100%;
+    min-width: 0;
   }
 
   .org-cards-section {
@@ -1512,6 +1566,15 @@
   .member-header {
     flex-direction: column;
     gap: var(--sp-3);
+  }
+
+  .member-info-row {
+    width: 100%;
+  }
+
+  .member-header-actions {
+    width: 100%;
+    justify-content: flex-end;
   }
 
   .member-meta-grid {
@@ -1563,6 +1626,137 @@
   }
 
   .footer-socials {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 640px) {
+  .site-header {
+    padding: 18px var(--sp-3) 0;
+  }
+
+  .site-header-inner {
+    padding: 0;
+  }
+
+  .brand-block {
+    gap: 14px;
+  }
+
+  .brand-kicker {
+    letter-spacing: 3px;
+  }
+
+  .brand-subtitle {
+    max-width: none;
+  }
+
+  .search-input-wrap {
+    padding: 10px 10px;
+  }
+
+  .org-tree-container {
+    padding: var(--sp-8) var(--sp-3) var(--sp-14);
+  }
+
+  .org-member-card {
+    padding: 12px;
+  }
+
+  .org-member-fact {
+    grid-template-columns: 74px 1fr;
+  }
+
+  .teams-row {
+    gap: var(--sp-3);
+  }
+
+  .group-intern .team-group-grid,
+  .group-sde .team-group-grid,
+  .group-trainee .team-group-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .section {
+    padding: var(--sp-8) var(--sp-3);
+  }
+
+  .section-title {
+    font-size: 32px;
+  }
+
+  .profile-section {
+    padding: 18px 18px;
+  }
+
+  .member-info-row {
+    align-items: flex-start;
+  }
+
+  .member-avatar {
+    width: 52px;
+    height: 52px;
+  }
+
+  .member-text h2 {
+    font-size: 18px;
+  }
+
+  .tech-skills-title {
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .brand-title {
+    font-size: 26px;
+  }
+
+  .company-pill {
+    justify-content: center;
+    width: 100%;
+  }
+
+  .org-cards-group-head span {
+    width: fit-content;
+  }
+
+  .group-intern .team-group-grid,
+  .group-sde .team-group-grid,
+  .group-trainee .team-group-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .feature-card,
+  .vm-card {
+    padding: 22px 18px;
+  }
+
+  .footer-inner {
+    padding: 16px 14px;
+  }
+
+  .footer-brand,
+  .footer-mid {
+    min-width: 0;
+  }
+
+  .back-btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .member-chain-icon {
+    width: 38px;
+    height: 38px;
+  }
+
+  .social-links-row {
+    gap: 10px;
+  }
+
+  .social-btn {
+    width: 100%;
     justify-content: center;
   }
 }
