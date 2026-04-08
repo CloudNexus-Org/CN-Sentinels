@@ -3,7 +3,13 @@ import { useParams, Link } from 'react-router-dom'
 import { employees } from '../data/employees'
 
 function getPhoto(emp) {
-  return emp.photo || `https://ui-avatars.com/api/?name=${encodeURIComponent(emp.name)}&background=15151f&color=0cf&size=128&font-size=0.4&bold=true`
+  if (emp.photo) {
+    return emp.photo.startsWith('/asset/')
+      ? `${import.meta.env.BASE_URL}${emp.photo.slice(1)}`
+      : emp.photo
+  }
+
+  return `https://ui-avatars.com/api/?name=${encodeURIComponent(emp.name)}&background=15151f&color=0cf&size=128&font-size=0.4&bold=true`
 }
 
 const ProfileDetail = () => {
