@@ -39,7 +39,7 @@ const internIds = [
   'Khushboo-Padmakar'
 ]
 
-const traineeIds = ['Kajal']
+const traineeIds = ['Kajal', 'Sneha-Sahu']
 
 function shortRole(title = '') {
   if (title.includes('Trainee')) return 'Trainee'

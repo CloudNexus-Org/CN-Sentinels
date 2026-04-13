@@ -684,7 +684,7 @@ export const employees = [
   {
     id: 'Priyanshi-Shrivastava',
     name: 'Priyanshi Shrivastava',
-    jobTitle: 'Associate Data Engineer-Trainee',
+    jobTitle: 'Associate Data Engineer-Intern',
     department: 'Engineering',
     location: 'Bhopal, MP',
     contact: '6260032015',
@@ -739,7 +739,7 @@ export const employees = [
   {
     id: 'Khushboo-Padmakar',
     name: 'Khushboo Padmakar',
-    jobTitle: 'Associate Data Engineer-Trainee',
+    jobTitle: 'Associate Data Engineer-Intern',
     department: 'Engineering',
     location: 'Bhopal, MP',
     contact: '7804881950',
@@ -790,7 +790,7 @@ export const employees = [
   {
     id: 'Sanskar-Namdeo',
     name: 'Sanskar Namdeo',
-    jobTitle: 'Associate Data Engineer-Trainee',
+    jobTitle: 'Associate Data Engineer-Intern',
     department: 'Engineering',
     location: 'Bhopal, MP',
     contact: '9752690431',
@@ -854,7 +854,7 @@ export const employees = [
   {
     id: 'Kajal',
     name: 'Kajal',
-    jobTitle: 'Data Engineer',
+    jobTitle: 'Associate Data Engineer-Trainee',
     department: 'Engineering',
     location: 'Bhopal',
     contact: '8817466641',
@@ -889,6 +889,48 @@ export const employees = [
       {
         category: 'AI Skills',
         skills: 'Prompt Engineering'
+      }
+    ]
+  },
+  {
+    id: 'Sneha-Sahu',
+    name: 'Sneha Sahu',
+    jobTitle: 'Associate Data Engineer-Trainee',
+    department: 'Engineering',
+    location: 'Bhopal, MP',
+    contact: 'Not provided',
+    dateOfJoining: '6 April 2026',
+    dateOfBirth: '4/4/2004',
+    timeZone: 'Morning',
+    photo: '/asset/sneha-sahu.jpeg',
+    keySkills: [
+      'Java',
+      'Python',
+      'SQL',
+      'MS Excel',
+      'Power BI',
+      'Data Analysis',
+      'Machine Learning',
+      'ETL Data Pipelines',
+      'Data Processing'
+    ],
+    professionalIntro: 'This is Sneha Sahu, an aspiring Data Engineer with knowledge in developing ETL data pipelines, data processing, and working with databases. I have experience with tools and technologies like SQL, Power BI, Machine Learning, Excel, Python, and Java.',
+    technicalSkills: [
+      {
+        category: 'Programming & Scripting',
+        skills: 'Java, Python (Pandas, NumPy, Matplotlib, Seaborn), SQL'
+      },
+      {
+        category: 'Data Engineering',
+        skills: 'ETL Data Pipelines, Data Processing'
+      },
+      {
+        category: 'Visualization & BI',
+        skills: 'Power BI, MS Excel'
+      },
+      {
+        category: 'Analytics & ML',
+        skills: 'Data Analysis, Machine Learning'
       }
     ]
   }
