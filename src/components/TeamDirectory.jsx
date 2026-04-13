@@ -94,6 +94,22 @@ const TeamDirectory = () => {
 
   const [query, setQuery] = useState('')
   const [isSearchOpen, setIsSearchOpen] = useState(false)
+  const [previewPhoto, setPreviewPhoto] = useState(null)
+
+  const openPhotoPreview = (event, member) => {
+    if (!member) return
+    event.preventDefault()
+    event.stopPropagation()
+    setPreviewPhoto({
+      src: getPhoto(member),
+      alt: `${member.name} profile photo`,
+      name: member.name
+    })
+  }
+
+  const closePhotoPreview = () => {
+    setPreviewPhoto(null)
+  }
 
   const matches = useMemo(() => {
     const normalizedQuery = query.trim().toLowerCase()
@@ -140,6 +156,26 @@ const TeamDirectory = () => {
     }, 120)
   }, [selectedMemberId])
 
+  useEffect(() => {
+    if (!previewPhoto) return undefined
+
+    const previousOverflow = document.body.style.overflow
+
+    const handleKeyDown = (event) => {
+      if (event.key === 'Escape') {
+        setPreviewPhoto(null)
+      }
+    }
+
+    document.body.style.overflow = 'hidden'
+    window.addEventListener('keydown', handleKeyDown)
+
+    return () => {
+      window.removeEventListener('keydown', handleKeyDown)
+      document.body.style.overflow = previousOverflow
+    }
+  }, [previewPhoto])
+
   const renderOrgCard = (member) => {
     const skills = normalizeSkills(Array.isArray(member.keySkills) ? member.keySkills : [])
 
@@ -152,7 +188,12 @@ const TeamDirectory = () => {
       >
         <div className="org-member-top">
           <div className="org-member-photo">
-            <img src={getPhoto(member)} alt={member.name} />
+            <img
+              src={getPhoto(member)}
+              alt={member.name}
+              className="profile-photo-zoomable"
+              onClick={(event) => openPhotoPreview(event, member)}
+            />
           </div>
           <div>
             <div className="org-member-name">{member.name}</div>
@@ -261,7 +302,12 @@ const TeamDirectory = () => {
                     onClick={() => goToEmployee(employee)}
                   >
                     <span className="search-item-avatar">
-                      <img src={getPhoto(employee)} alt="" />
+                      <img
+                        src={getPhoto(employee)}
+                        alt=""
+                        className="profile-photo-zoomable"
+                        onClick={(event) => openPhotoPreview(event, employee)}
+                      />
                     </span>
                     <span className="search-item-text">
                       <span className="search-item-name">{employee.name}</span>
@@ -282,7 +328,14 @@ const TeamDirectory = () => {
           {ceo && (
             <li>
               <Link to={`/profile/${ceo.id}`} className="node ceo-node">
-                <div className="node-photo"><img src={getPhoto(ceo)} alt={ceo.name} /></div>
+                <div className="node-photo">
+                  <img
+                    src={getPhoto(ceo)}
+                    alt={ceo.name}
+                    className="profile-photo-zoomable"
+                    onClick={(event) => openPhotoPreview(event, ceo)}
+                  />
+                </div>
                 <div className="node-name">{ceo.name}</div>
                 <div className="node-role">Founder & CEO</div>
               </Link>
@@ -291,7 +344,14 @@ const TeamDirectory = () => {
                 {cto && (
                   <li>
                     <Link to={`/profile/${cto.id}`} className="node cto-node">
-                      <div className="node-photo"><img src={getPhoto(cto)} alt={cto.name} /></div>
+                      <div className="node-photo">
+                        <img
+                          src={getPhoto(cto)}
+                          alt={cto.name}
+                          className="profile-photo-zoomable"
+                          onClick={(event) => openPhotoPreview(event, cto)}
+                        />
+                      </div>
                       <div className="node-name">{cto.name}</div>
                       <div className="node-role">CTO</div>
                     </Link>
@@ -300,7 +360,14 @@ const TeamDirectory = () => {
                       {techHead && (
                         <li>
                           <Link to={`/profile/${techHead.id}`} className="node cto-node">
-                            <div className="node-photo"><img src={getPhoto(techHead)} alt={techHead.name} /></div>
+                            <div className="node-photo">
+                              <img
+                                src={getPhoto(techHead)}
+                                alt={techHead.name}
+                                className="profile-photo-zoomable"
+                                onClick={(event) => openPhotoPreview(event, techHead)}
+                              />
+                            </div>
                             <div className="node-name">{techHead.name}</div>
                             <div className="node-role">Technical Head</div>
                           </Link>
@@ -311,7 +378,14 @@ const TeamDirectory = () => {
                               <div className="trunk-nodes">
                                 {tl && (
                                   <Link to={`/profile/${tl.id}`} className="node tl-node">
-                                    <div className="node-photo"><img src={getPhoto(tl)} alt={tl.name} /></div>
+                                    <div className="node-photo">
+                                      <img
+                                        src={getPhoto(tl)}
+                                        alt={tl.name}
+                                        className="profile-photo-zoomable"
+                                        onClick={(event) => openPhotoPreview(event, tl)}
+                                      />
+                                    </div>
                                     <div className="node-name">{tl.name}</div>
                                     <div className="node-role">Team Lead</div>
                                   </Link>
@@ -320,7 +394,14 @@ const TeamDirectory = () => {
                                 {revOps && (
                                   <div className="prachi-branch">
                                     <Link to={`/profile/${revOps.id}`} className="node revops-node">
-                                      <div className="node-photo"><img src={getPhoto(revOps)} alt={revOps.name} /></div>
+                                      <div className="node-photo">
+                                        <img
+                                          src={getPhoto(revOps)}
+                                          alt={revOps.name}
+                                          className="profile-photo-zoomable"
+                                          onClick={(event) => openPhotoPreview(event, revOps)}
+                                        />
+                                      </div>
                                       <div className="node-name">{revOps.name}</div>
                                       <div className="node-role">Revenue Operations (...</div>
                                     </Link>
@@ -335,7 +416,12 @@ const TeamDirectory = () => {
                                       {sdeGroup.map((member) => (
                                         <Link key={member.id} to={`/profile/${member.id}`} className="team-member">
                                           <div className="tm-photo">
-                                            <img src={getPhoto(member)} alt={member.name} />
+                                            <img
+                                              src={getPhoto(member)}
+                                              alt={member.name}
+                                              className="profile-photo-zoomable"
+                                              onClick={(event) => openPhotoPreview(event, member)}
+                                            />
                                           </div>
                                           <div className="tm-name">{member.name}</div>
                                           <div className="tm-role">{shortRole(member.jobTitle)}</div>
@@ -351,7 +437,12 @@ const TeamDirectory = () => {
                                       {internGroup.map((member) => (
                                         <Link key={member.id} to={`/profile/${member.id}`} className="team-member">
                                           <div className="tm-photo">
-                                            <img src={getPhoto(member)} alt={member.name} />
+                                            <img
+                                              src={getPhoto(member)}
+                                              alt={member.name}
+                                              className="profile-photo-zoomable"
+                                              onClick={(event) => openPhotoPreview(event, member)}
+                                            />
                                           </div>
                                           <div className="tm-name">{member.name}</div>
                                           <div className="tm-role">{shortRole(member.jobTitle)}</div>
@@ -367,7 +458,12 @@ const TeamDirectory = () => {
                                       {traineeGroup.map((member) => (
                                         <Link key={member.id} to={`/profile/${member.id}`} className="team-member">
                                           <div className="tm-photo">
-                                            <img src={getPhoto(member)} alt={member.name} />
+                                            <img
+                                              src={getPhoto(member)}
+                                              alt={member.name}
+                                              className="profile-photo-zoomable"
+                                              onClick={(event) => openPhotoPreview(event, member)}
+                                            />
                                           </div>
                                           <div className="tm-name">{member.name}</div>
                                           <div className="tm-role">{shortRole(member.jobTitle)}</div>
@@ -555,6 +651,23 @@ const TeamDirectory = () => {
           <a href="https://www.cloudnexus.in/" target="_blank" rel="noreferrer" title="Website">web</a>
         </div>
       </footer>
+
+      {previewPhoto && (
+        <div
+          className="photo-lightbox"
+          role="dialog"
+          aria-modal="true"
+          aria-label={`${previewPhoto.name} photo preview`}
+          onClick={closePhotoPreview}
+        >
+          <div className="photo-lightbox-content" onClick={(event) => event.stopPropagation()}>
+            <button type="button" className="photo-lightbox-close" onClick={closePhotoPreview}>
+              Close
+            </button>
+            <img src={previewPhoto.src} alt={previewPhoto.alt} />
+          </div>
+        </div>
+      )}
     </div>
   )
 }

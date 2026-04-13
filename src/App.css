@@ -30,6 +30,7 @@
 .logo-icon {
   width: 48px;
   height: 48px;
+  padding: 4px;
   border-radius: 14px;
   background: linear-gradient(165deg, rgba(13, 18, 28, 0.95), rgba(8, 10, 16, 0.96));
   border: 1px solid rgba(0, 204, 255, 0.2);
@@ -44,8 +45,8 @@
 .logo-icon img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
-  transform: scale(1.28);
+  object-fit: contain;
+  transform: none;
 }
 
 .logo span {
@@ -93,10 +94,11 @@
 .hero h1 {
   margin: 0;
   font-size: clamp(34px, 5vw, 56px);
-  line-height: 1.02;
+  line-height: 1.06;
   letter-spacing: -0.03em;
   color: rgba(245, 245, 250, 0.98);
-  max-width: 12ch;
+  max-width: none;
+  white-space: nowrap;
 }
 
 .hero p {
@@ -175,8 +177,8 @@
 .brand-logo img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
-  transform: scale(1.32);
+  object-fit: contain;
+  transform: none;
   filter: drop-shadow(0 0 12px rgba(0, 204, 255, 0.14));
 }
 
@@ -1209,6 +1211,56 @@
   width: 100%;
 }
 
+.profile-photo-zoomable {
+  cursor: zoom-in;
+}
+
+.photo-lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 1500;
+  background: rgba(3, 5, 12, 0.88);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+
+.photo-lightbox-content {
+  position: relative;
+  max-width: min(92vw, 1120px);
+  max-height: 90vh;
+}
+
+.photo-lightbox-content img {
+  display: block;
+  max-width: 100%;
+  max-height: 90vh;
+  object-fit: contain;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 24px 70px rgba(0, 0, 0, 0.5);
+}
+
+.photo-lightbox-close {
+  position: absolute;
+  top: -44px;
+  right: 0;
+  border: 1px solid rgba(255, 255, 255, 0.24);
+  background: rgba(8, 12, 20, 0.86);
+  color: rgba(235, 245, 255, 0.95);
+  border-radius: 999px;
+  padding: 6px 12px;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.photo-lightbox-close:hover {
+  border-color: rgba(0, 204, 255, 0.45);
+  color: #0cf;
+}
+
 .profile-topbar {
   display: flex;
   justify-content: space-between;
@@ -1588,7 +1640,7 @@
   }
 
   .hero h1 {
-    font-size: 34px;
+    font-size: clamp(20px, 6.4vw, 24px);
   }
 
   .search-input-wrap {
@@ -1629,6 +1681,14 @@
     padding: 18px 18px;
   }
 
+  .photo-lightbox {
+    padding: 12px;
+  }
+
+  .photo-lightbox-close {
+    top: -40px;
+  }
+
   .member-info-row {
     align-items: flex-start;
   }
@@ -1654,7 +1714,7 @@
   }
 
   .hero h1 {
-    font-size: 28px;
+    font-size: clamp(16px, 5.2vw, 20px);
   }
 
   .hero p {
