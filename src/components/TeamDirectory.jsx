@@ -24,10 +24,9 @@ function getPhoto(emp) {
   return `https://ui-avatars.com/api/?name=${encodeURIComponent(emp.name)}&background=15151f&color=0cf&size=128&font-size=0.4&bold=true`
 }
 
-const sdeIds = ['Prateeksha-Patel', 'Sherry-Khosla']
+const sdeIds = ['Shivnandan-Verma', 'Prateeksha-Patel', 'Sherry-Khosla']
 
 const internIds = [
-  'Shivnandan-Verma',
   'Atharva-Karade',
   'Ankit-Kumar-Singh',
   'Sanjana-Chourey',
@@ -42,6 +41,7 @@ const internIds = [
 const traineeIds = ['Kajal', 'Sneha-Sahu']
 
 function shortRole(title = '') {
+  if (title.includes('Associate Data Engineer-1')) return 'ADE'
   if (title.includes('Trainee')) return 'Trainee'
   if (title.includes('Intern')) return 'Intern'
   if (title.includes('(SDE-1)')) return 'SDE-1'
@@ -373,7 +373,6 @@ const TeamDirectory = () => {
 
                           <ul>
                             <li>
-                              <div className="prachi-h-line" />
                               <div className="trunk-nodes">
                                 {tl && (
                                   <Link to={`/profile/${tl.id}`} className="node tl-node">
@@ -392,6 +391,7 @@ const TeamDirectory = () => {
 
                                 {revOps && (
                                   <div className="prachi-branch">
+                                    <span className="prachi-h-line" aria-hidden="true" />
                                     <Link to={`/profile/${revOps.id}`} className="node revops-node">
                                       <div className="node-photo">
                                         <img
