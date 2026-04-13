@@ -643,26 +643,25 @@
 .trunk-nodes {
   position: relative;
   display: flex;
+  align-items: center;
   justify-content: center;
+  gap: 96px;
   z-index: 0;
 }
 
 .prachi-branch {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  margin-left: 240px;
-  transform: translate(-50%, -50%);
+  position: relative;
   z-index: 0;
 }
 
 .prachi-h-line {
   position: absolute;
   top: 50%;
-  left: calc(50% - 240px);
-  width: 240px;
+  right: 100%;
+  width: 96px;
   height: 1px;
   background: var(--accent-blue);
+  transform: translateY(-50%);
   z-index: 0;
 }
 

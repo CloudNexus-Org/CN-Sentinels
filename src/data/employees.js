@@ -260,7 +260,7 @@ export const employees = [
   {
     id: 'Shivnandan-Verma',
     name: 'Shivnandan Verma',
-    jobTitle: 'Associate Data Engineer-Intern',
+    jobTitle: 'Associate Data Engineer-1',
     department: 'Engineering',
     location: 'Bhopal, MP',
     contact: '89627 38918',
