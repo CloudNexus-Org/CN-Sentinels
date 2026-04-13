@@ -850,6 +850,47 @@ export const employees = [
           skills: 'Docker, Git'
         }
       ]
+  },
+  {
+    id: 'Kajal',
+    name: 'Kajal',
+    jobTitle: 'Data Engineer',
+    department: 'Engineering',
+    location: 'Bhopal',
+    contact: '8817466641',
+    dateOfJoining: '6 April 2026',
+    dateOfBirth: '5/5/2003',
+    timeZone: 'Morning',
+    photo: '/asset/kajal.png',
+    keySkills: [
+      'SQL',
+      'Power BI',
+      'Tableau',
+      'Excel',
+      'Prompt Engineering',
+      'Python',
+      'Java',
+      'ETL Pipelines'
+    ],
+    professionalIntro: 'My name is Kajal. I am currently working as a Data Engineer. I have a strong interest in data-driven technologies and have developed skills in SQL, Python, Power BI, and data processing concepts like ETL pipelines.',
+    technicalSkills: [
+      {
+        category: 'Programming & Scripting',
+        skills: 'Python, Java, SQL'
+      },
+      {
+        category: 'Visualization & BI',
+        skills: 'Power BI, Tableau, Excel'
+      },
+      {
+        category: 'Data Engineering',
+        skills: 'ETL Pipelines, Data Processing'
+      },
+      {
+        category: 'AI Skills',
+        skills: 'Prompt Engineering'
+      }
+    ]
   }
 ];
  
