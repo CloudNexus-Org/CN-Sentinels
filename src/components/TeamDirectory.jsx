@@ -33,14 +33,13 @@ const internIds = [
   'Sanjana-Chourey',
   'Deepak-Mandloi',
   'Rishabh-Raj-Dubey',
-  'Suryansh-Chouhan'
-]
-
-const traineeIds = [
+  'Suryansh-Chouhan',
   'Sanskar-Namdeo',
   'Priyanshi-Shrivastava',
   'Khushboo-Padmakar'
 ]
+
+const traineeIds = ['Kajal']
 
 function shortRole(title = '') {
   if (title.includes('Trainee')) return 'Trainee'
@@ -452,26 +451,28 @@ const TeamDirectory = () => {
                                   </div>
                                 </li>
 
-                                <li>
-                                  <div className="team-group group-trainee">
-                                    <div className="team-group-grid">
-                                      {traineeGroup.map((member) => (
-                                        <Link key={member.id} to={`/profile/${member.id}`} className="team-member">
-                                          <div className="tm-photo">
-                                            <img
-                                              src={getPhoto(member)}
-                                              alt={member.name}
-                                              className="profile-photo-zoomable"
-                                              onClick={(event) => openPhotoPreview(event, member)}
-                                            />
-                                          </div>
-                                          <div className="tm-name">{member.name}</div>
-                                          <div className="tm-role">{shortRole(member.jobTitle)}</div>
-                                        </Link>
-                                      ))}
+                                {traineeGroup.length > 0 && (
+                                  <li>
+                                    <div className="team-group group-trainee">
+                                      <div className="team-group-grid">
+                                        {traineeGroup.map((member) => (
+                                          <Link key={member.id} to={`/profile/${member.id}`} className="team-member">
+                                            <div className="tm-photo">
+                                              <img
+                                                src={getPhoto(member)}
+                                                alt={member.name}
+                                                className="profile-photo-zoomable"
+                                                onClick={(event) => openPhotoPreview(event, member)}
+                                              />
+                                            </div>
+                                            <div className="tm-name">{member.name}</div>
+                                            <div className="tm-role">{shortRole(member.jobTitle)}</div>
+                                          </Link>
+                                        ))}
+                                      </div>
                                     </div>
-                                  </div>
-                                </li>
+                                  </li>
+                                )}
                               </ul>
                             </li>
                           </ul>
@@ -542,15 +543,17 @@ const TeamDirectory = () => {
           </div>
         </div>
 
-        <div className="org-cards-group">
-          <div className="org-cards-group-head">
-            <h4>Trainee</h4>
-            <span>{traineeGroup.length} people</span>
+        {traineeGroup.length > 0 && (
+          <div className="org-cards-group">
+            <div className="org-cards-group-head">
+              <h4>Trainee</h4>
+              <span>{traineeGroup.length} people</span>
+            </div>
+            <div className="org-cards-grid">
+              {traineeGroup.map(renderOrgCard)}
+            </div>
           </div>
-          <div className="org-cards-grid">
-            {traineeGroup.map(renderOrgCard)}
-          </div>
-        </div>
+        )}
       </div>
 
       <div className="divider" />
